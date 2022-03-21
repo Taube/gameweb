@@ -1,0 +1,25 @@
+{
+  "name": "react-next-storyblok-boilerplate",
+  "version": "1.0.0",
+  "description": "Next.js Storyblok Boilerplate",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@storyblok/storyblok-editable": "^1.0.0",
+    "axios": "^0.21.1",
+    "next": "^11.1.2",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "sass": "^1.49.9",
+    "storyblok-js-client": "^4.0.7"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.41",
+    "typescript": "^4.6.2"
+  }
+}
