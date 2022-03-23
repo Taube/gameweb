@@ -9,6 +9,12 @@ const Storyblok = new StoryblokClient({
   },
 });
 
+declare global {
+  interface Window {
+    StoryblokBridge: any;
+  }
+}
+
 export function useStoryblok(originalStory, preview) {
   let [story, setStory] = useState(originalStory);
 

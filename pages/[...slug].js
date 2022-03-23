@@ -1,7 +1,7 @@
 import React from "react";
 import DynamicComponent from "../components/DynamicComponent";
 import Head from "next/head";
-import styles from "../styles/Home.module.css";
+import styles from "../styles/Home.module.scss";
 
 import Storyblok, { useStoryblok } from "../lib/storyblok";
 
