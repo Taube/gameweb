@@ -1,9 +1,12 @@
 import React from "react";
 import DynamicComponent from "../components/DynamicComponent";
 import Head from "next/head";
-import styles from "../styles/Home.module.scss";
+
+import { GameList } from "./blocks/GameList";
 
 import Storyblok, { useStoryblok } from "../lib/storyblok";
+
+export type Page = "home" | "analytics" | "messages" | "account" | "settings";
 
 export default function Page({ story, preview }) {
   const enableBridge = true; // load the storyblok bridge everywhere
@@ -11,7 +14,7 @@ export default function Page({ story, preview }) {
   story = useStoryblok(story, enableBridge);
 
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
         <title>{story ? story.name : "My Site"}</title>
         <link rel="icon" href="/favicon.ico" />

@@ -1,31 +1,35 @@
+import React from "react";
+
 import Head from "next/head";
-import styles from "../styles/Home.module.scss";
 
 // The Storyblok Client & hook
 import Storyblok, { useStoryblok } from "../lib/storyblok";
 import DynamicComponent from "../components/DynamicComponent";
+import { Sidebar } from "../components/Sidebar";
+import { classes } from "../utility/classes";
 
 export default function Home({ story, preview }) {
   const enableBridge = true; // load the storyblok bridge everywhere
   // const enableBridge = preview; // enable bridge only in prevew mode
+  const [isOpen, setOpen] = React.useState<boolean>(false);
 
   story = useStoryblok(story, enableBridge);
 
   return (
-    <div className={styles.container}>
+    <>
       <Head>
-        <title>Create Next App</title>
+        <title>Gameweb</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <header>
-        <h1>{story ? story.name : "My Site"}</h1>
-      </header>
-
-      <DynamicComponent blok={story.content} />
-    </div>
+      <div className={classes("home", isOpen ? "" : "closed")}>
+        <Sidebar isOpen={isOpen} setOpen={setOpen} />
+        <DynamicComponent blok={story.content} />
+      </div>
+    </>
   );
 }
+
+// <h1>{story ? story.name : "My Site"}</h1>
 
 export async function getStaticProps({ preview = false }) {
   // home is the default slug for the homepage in Storyblok

@@ -2,6 +2,7 @@ import Teaser from "./Teaser";
 import Grid from "./Grid";
 import Feature from "./Feature";
 import Page from "./Page";
+import { GameList } from "./GameList";
 
 // resolve Storyblok components to Next.js components
 const Components = {
@@ -13,6 +14,9 @@ const Components = {
 
 const DynamicComponent = ({ blok }) => {
   // check if component is defined above
+
+  return <GameList />;
+
   if (typeof Components[blok.component] !== "undefined") {
     const Component = Components[blok.component];
 
