@@ -2,8 +2,6 @@ import React from "react";
 import DynamicComponent from "../components/DynamicComponent";
 import Head from "next/head";
 
-import { GameList } from "./blocks/GameList";
-
 import Storyblok, { useStoryblok } from "../lib/storyblok";
 
 export type Page = "home" | "analytics" | "messages" | "account" | "settings";
@@ -36,6 +34,7 @@ export async function getStaticProps({ params, preview = false }) {
   let sbParams = {
     // change to `published` to load the published version
     version: "draft", // or published
+    cv: 0,
   };
 
   if (preview) {

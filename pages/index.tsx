@@ -37,6 +37,7 @@ export async function getStaticProps({ preview = false }) {
   // load the published content outside of the preview mode
   let sbParams = {
     version: "draft", // or 'published'
+    cv: 0,
   };
 
   if (preview) {
