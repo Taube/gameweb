@@ -1,0 +1,185 @@
+@use "../mixins/media";
+@import "../global-variables";
+
+@mixin createHideClasses() {
+  @each $key, $breakpoint in $breakpoints {
+    @include media.breakpoints($breakpoint) {
+      .hide-#{$breakpoint} {
+        display: none !important;
+      }
+    }
+  }
+}
+
+@mixin fullPageHeight() {
+  @include media.breakpoints("mobile", "tablet") {
+    min-height: calc(100vh - 5rem);
+  }
+  @include media.breakpoints("laptop", "desktop") {
+    min-height: calc(100vh - 6rem);
+  }
+}
+
+@mixin padding($lines: 1) {
+  @include media.breakpoints("mobile", "tablet") {
+    padding: ($lines * $baseline) ($lines * $gap-mobile-tablet);
+  }
+
+  @include media.breakpoints("laptop", "desktop") {
+    padding: ($lines * $baseline-large) ($lines * $gap-laptop-desktop);
+  }
+}
+
+@mixin paddingVertical($lines: 1) {
+  @include media.breakpoints("mobile", "tablet") {
+    padding-top: ($lines * $baseline);
+    padding-bottom: ($lines * $baseline);
+  }
+
+  @include media.breakpoints("laptop", "desktop") {
+    padding-top: ($lines * $baseline-large);
+    padding-bottom: ($lines * $baseline-large);
+  }
+}
+
+@mixin paddingHorizontal($columns: 1) {
+  @include media.breakpoints("mobile", "tablet") {
+    padding-left: $columns * $gap-mobile-tablet;
+    padding-right: $columns * $gap-mobile-tablet;
+  }
+
+  @include media.breakpoints("laptop", "desktop") {
+    padding-left: $columns * $gap-laptop-desktop;
+    padding-right: $columns * $gap-laptop-desktop;
+  }
+}
+
+@mixin paddingBottom($lines: 1) {
+  @include media.breakpoints("mobile", "tablet") {
+    padding-bottom: ($lines * $baseline);
+  }
+
+  @include media.breakpoints("laptop", "desktop") {
+    padding-bottom: ($lines * $baseline-large);
+  }
+}
+
+@mixin paddingTop($lines: 1) {
+  @include media.breakpoints("mobile", "tablet") {
+    padding-top: ($lines * $baseline);
+  }
+
+  @include media.breakpoints("laptop", "desktop") {
+    padding-top: ($lines * $baseline-large);
+  }
+}
+
+@mixin marginTop($lines: 1) {
+  @include media.breakpoints("mobile", "tablet") {
+    margin-top: ($lines * $baseline);
+  }
+
+  @include media.breakpoints("laptop", "desktop") {
+    margin-top: ($lines * $baseline-large);
+  }
+}
+
+@mixin marginBottom($lines: 1) {
+  @include media.breakpoints("mobile", "tablet") {
+    margin-bottom: ($lines * $baseline);
+  }
+
+  @include media.breakpoints("laptop", "desktop") {
+    margin-bottom: ($lines * $baseline-large);
+  }
+}
+
+@mixin marginVertical($lines: 1) {
+  @include media.breakpoints("mobile", "tablet") {
+    margin-top: ($lines * $baseline);
+    margin-bottom: ($lines * $baseline);
+  }
+
+  @include media.breakpoints("laptop", "desktop") {
+    margin-top: ($lines * $baseline-large);
+    margin-bottom: ($lines * $baseline-large);
+  }
+}
+
+@mixin marginHorizontal($lines: 1) {
+  @include media.breakpoints("mobile", "tablet") {
+    margin-left: ($lines * $gap-mobile-tablet);
+    margin-right: ($lines * $gap-mobile-tablet);
+  }
+
+  @include media.breakpoints("laptop", "desktop") {
+    margin-left: ($lines * $gap-laptop-desktop);
+    margin-right: ($lines * $gap-laptop-desktop);
+  }
+}
+
+@mixin minHeight($lines: 1) {
+  @include media.breakpoints("mobile", "tablet") {
+    min-height: ($lines * $baseline);
+  }
+
+  @include media.breakpoints("laptop", "desktop") {
+    min-height: ($lines * $baseline-large);
+  }
+}
+
+@mixin rowGap($lines: 1) {
+  @include media.breakpoints("mobile", "tablet") {
+    row-gap: ($lines * $baseline);
+  }
+
+  @include media.breakpoints("laptop", "desktop") {
+    row-gap: ($lines * $baseline-large);
+  }
+}
+
+@mixin widthGap() {
+  @include media.breakpoints("mobile", "tablet") {
+    width: calc(100% + $gap-mobile-tablet);
+  }
+  @include media.breakpoints("laptop", "desktop") {
+    width: calc(100% + $gap-laptop-desktop);
+  }
+}
+
+@mixin fillGap($gap: 1) {
+  @include media.breakpoints("mobile", "tablet") {
+    margin-left: -($gap-mobile-tablet * $gap);
+    padding-left: ($gap-mobile-tablet * $gap);
+    margin-right: -($gap-mobile-tablet * $gap);
+    padding-right: ($gap-mobile-tablet * $gap);
+  }
+  @include media.breakpoints("laptop", "desktop") {
+    margin-left: -($gap-laptop-desktop * $gap);
+    padding-left: ($gap-laptop-desktop * $gap);
+    margin-right: -($gap-laptop-desktop * $gap);
+    padding-right: ($gap-laptop-desktop * $gap);
+  }
+}
+
+@mixin fillGapRight($gap: 1) {
+  @include media.breakpoints("mobile", "tablet") {
+    margin-right: -($gap-mobile-tablet * $gap);
+    padding-right: ($gap-mobile-tablet * $gap);
+  }
+  @include media.breakpoints("laptop", "desktop") {
+    margin-right: -($gap-laptop-desktop * $gap);
+    padding-right: ($gap-laptop-desktop * $gap);
+  }
+}
+
+@mixin fillGapLeft($gap: 1) {
+  @include media.breakpoints("mobile", "tablet") {
+    margin-left: -($gap-mobile-tablet * $gap);
+    padding-left: ($gap-mobile-tablet * $gap);
+  }
+  @include media.breakpoints("laptop", "desktop") {
+    margin-left: -($gap-laptop-desktop * $gap);
+    padding-left: ($gap-laptop-desktop * $gap);
+  }
+}

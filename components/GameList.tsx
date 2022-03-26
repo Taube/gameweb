@@ -17,7 +17,7 @@ export const GameList = () => {
           like multiplayer, solo or red VS blue.
         </GameCard>
 
-        <GameCard image="/games/mincraft.jpg">
+        <GameCard image="/games/minecraft.jpg">
           Minecraft: Minecraft is a fun survivalbased game were you can do
           whater you want, with whoever you want.
         </GameCard>

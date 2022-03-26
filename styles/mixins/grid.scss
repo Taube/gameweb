@@ -1,0 +1,37 @@
+@use "./media";
+@import "../global-variables";
+
+@mixin createGrid($rowGap: false, $mobileTabletGap: $gap-mobile-tablet) {
+  display: grid;
+
+  margin-left: $mobileTabletGap;
+  margin-right: $mobileTabletGap;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: $gap-mobile-tablet;
+
+  @if $rowGap {
+    row-gap: $baseline;
+  }
+
+  @include media.breakpoints("mobile") {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @include media.breakpoints("laptop", "desktop") {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    column-gap: $gap-laptop-desktop;
+    @if $rowGap {
+      row-gap: $baseline-large;
+    }
+  }
+
+  @include media.breakpoints("laptop") {
+    max-width: $max-width-laptop;
+  }
+
+  @include media.breakpoints("desktop") {
+    max-width: $max-width-desktop;
+  }
+}

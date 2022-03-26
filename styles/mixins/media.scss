@@ -1,0 +1,35 @@
+@import "../global-variables";
+
+@mixin breakpoints($breakpoints...) {
+  @each $breakpoint in $breakpoints {
+    @if ($breakpoint == "small-mobile") {
+      @media (max-width: $breakpoint-small-mobile-max) {
+        @content;
+      }
+    } @else if ($breakpoint == "mobile") {
+      @media (max-width: $breakpoint-mobile-max) {
+        @content;
+      }
+    } @else if ($breakpoint == "tablet") {
+      @media (min-width: $breakpoint-tablet-min) and (max-width: $breakpoint-tablet-max) {
+        @content;
+      }
+    } @else if ($breakpoint == "laptop") {
+      @media (min-width: $breakpoint-laptop-min) and (max-width: $breakpoint-laptop-max) {
+        @content;
+      }
+    } @else if ($breakpoint == "desktop") {
+      @media (min-width: $breakpoint-desktop-min) {
+        @content;
+      }
+    } @else {
+      @error "breakpoint must be one of mobile, tablet, laptop or desktop";
+    }
+  }
+}
+
+@mixin minRange($min, $range) {
+  @media (min-width: $min) and (max-width: ($min+$range)) {
+    @content;
+  }
+}

@@ -1,0 +1,38 @@
+// Breakpoints
+$breakpoint-small-mobile-min: 420px;
+$breakpoint-tablet-min: 600px;
+$breakpoint-laptop-min: 1024px;
+$breakpoint-desktop-min: 1600px;
+$breakpoint-small-mobile-max: calc($breakpoint-small-mobile-min - 1px);
+$breakpoint-mobile-max: calc($breakpoint-tablet-min - 1px);
+$breakpoint-tablet-max: calc($breakpoint-laptop-min - 1px);
+$breakpoint-laptop-max: calc($breakpoint-desktop-min - 1px);
+
+// Vertical & Horizontal Rythm
+$baseline: 20px;
+$baseline-large: 24px;
+$gap-mobile-tablet: 16px;
+$gap-laptop-desktop: 24px;
+
+// Limit Widths
+$max-width-laptop: 896px;
+$max-width-desktop: 1472px;
+
+// Ratios
+$ratio-1-1: 100%;
+$ratio-16-9: 56.25%;
+$ratio-4-3: 75%;
+$ratio-3-2: 66.66%;
+
+$breakpoints: (
+  "mobile": "mobile",
+  "tablet": "tablet",
+  "laptop": "laptop",
+  "desktop": "desktop",
+);
+
+$alignments: (
+  "left": left,
+  "center": center,
+  "right": right,
+);

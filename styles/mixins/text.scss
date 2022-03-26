@@ -1,0 +1,28 @@
+@mixin ellipsis() {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+@mixin multilineEllipsis($font-size, $line-height, $lines) {
+  font-size: $font-size;
+  line-height: $line-height;
+
+  line-clamp: $lines;
+  -webkit-line-clamp: $lines;
+
+  max-height: calc(
+    $font-size * $line-height * $lines
+  ); /* Fallback for non-webkit */
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  display: -webkit-box !important;
+
+  // Obsolete but required to get dots
+  box-orient: vertical;
+  -webkit-box-orient: vertical;
+
+  white-space: normal;
+}
