@@ -1,14 +1,32 @@
+@use "../styles/mixins/media.scss";
+
+$gap: 25px;
+
 /*Flexbox*/
 .games-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+
   grid-template-rows: minmax(15rem, 80%);
   margin: 0px;
   margin-top: 5rem;
-  margin-left: 10rem;
-  margin-right: 10rem;
-  column-gap: 65px;
-  gap: 115px;
+  margin-left: $gap;
+  margin-right: $gap;
+  gap: $gap;
+
+  @include media.breakpoints("mobile") {
+    grid-template-columns: 1fr;
+  }
+  @include media.breakpoints("tablet") {
+    grid-template-columns: 1fr 1fr;
+  }
+  @include media.breakpoints("laptop") {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  @include media.breakpoints("desktop") {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: calc($gap * 2);
+  }
+
   > div {
     padding: 15px;
     background-color: rgb(222, 253, 21);
@@ -23,6 +41,7 @@
     backdrop-filter: blur(4px);
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: top center;
     &::after {
       position: absolute;
       top: 0;
@@ -35,7 +54,16 @@
   }
 
   > .hero {
-    grid-column: 1 / span 4;
+    @include media.breakpoints("tablet") {
+      grid-column: 1 / span 2;
+    }
+    @include media.breakpoints("laptop") {
+      grid-column: 1 / span 3;
+    }
+    @include media.breakpoints("desktop") {
+      grid-column: 1 / span 4;
+    }
+
     grid-row: 1;
     min-height: 41rem;
     border-radius: 25px;
