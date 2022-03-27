@@ -5,6 +5,6 @@ module.exports = {
     outputStandalone: true,
   },
   images: {
-    domains: ["a.storyblok.com"],
+    domains: ["a.storyblok.com", "res.cloudinary.com"],
   },
 };
