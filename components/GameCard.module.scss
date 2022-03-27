@@ -1,18 +1,28 @@
 .game {
-  box-sizing: border-box;
-  padding-top: 2%;
-  color: rgb(255, 255, 255);
-  z-index: 2 !important;
-  padding-right: 10px;
-  padding-left: 10px;
+  position: relative;
+  min-height: 25rem;
+  border-radius: 15px;
+
+  display: flex;
+  will-change: transform; // Fixes rounding issue
+  background-color: rgb(222, 253, 21);
+}
+
+.image {
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.content {
+  color: white;
   position: absolute;
-  top: 58%;
-  left: 0;
   width: 100%;
-  height: 84%;
-  content: " ";
+  top: 60%;
+  height: 40%;
+  background-color: rgba(#383838a4, 50%);
+  padding: 15px 15px 15px 15px;
   backdrop-filter: blur(4px);
-  background: -webkit-linear-gradient(bottom, transparent 50%, #383838a4 50%);
+  will-change: transform; // Fixes rounding issue
 }
 
 .button {

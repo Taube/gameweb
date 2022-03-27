@@ -1,27 +1,20 @@
 import React from "react";
 import { classes } from "../utility/classes";
-
 import styles from "./GameCard.module.scss";
+import Image from "next/image";
 
-function styling(path?: string) {
-  if (!path) {
-    return;
-  }
-  return {
-    backgroundImage: `url(${path})`,
-  };
-}
-
-export const GameCard = ({
-  image,
-  children,
-}: {
+type GameCardProps = {
   image?: string;
-  children: React.ReactNode;
-}) => {
+  children?: React.ReactNode;
+};
+
+export const GameCard = ({ image, children, ...rest }: GameCardProps) => {
   return (
-    <div style={styling(image)}>
-      <div className={styles.game}>{children}</div>
+    <div {...rest} className={styles.game}>
+      {image ? (
+        <Image src={image} layout="fill" className={styles.image} />
+      ) : null}
+      <div className={styles.content}>{children}</div>
       <button className={styles.button}>
         <i className={classes("bx", "bx-play", styles.play)} />
       </button>

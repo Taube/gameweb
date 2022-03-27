@@ -10,16 +10,14 @@ const Components = {
   grid: Grid,
   feature: Feature,
   page: Page,
+  ["featured-games"]: GameList,
 };
 
 const DynamicComponent = ({ blok }) => {
   // check if component is defined above
 
-  return <GameList />;
-
   if (typeof Components[blok.component] !== "undefined") {
     const Component = Components[blok.component];
-
     return <Component blok={blok} key={blok._uid} />;
   }
 

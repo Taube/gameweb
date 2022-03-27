@@ -4,4 +4,7 @@ module.exports = {
   experimental: {
     outputStandalone: true,
   },
+  images: {
+    domains: ["a.storyblok.com"],
+  },
 };

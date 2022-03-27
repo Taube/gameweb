@@ -29,15 +29,14 @@ export default function Home({ story, preview }) {
   );
 }
 
-// <h1>{story ? story.name : "My Site"}</h1>
-
-export async function getStaticProps({ preview = false }) {
+export async function getStaticProps({ preview = true }) {
   // home is the default slug for the homepage in Storyblok
   let slug = "home";
   // load the published content outside of the preview mode
   let sbParams = {
     version: "draft", // or 'published'
     cv: 0,
+    resolve_relations: "featured-games.games",
   };
 
   if (preview) {

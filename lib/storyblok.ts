@@ -15,8 +15,23 @@ declare global {
   }
 }
 
+function getAndSetStory(slug: string, setStory: any) {
+  Storyblok.get(`cdn/stories/${slug}`, {
+    version: "draft",
+    resolve_relations: "featured-games.games",
+  })
+    .then(({ data }) => {
+      if (data.story) {
+        setStory(data.story);
+      }
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+}
+
 export function useStoryblok(originalStory, preview) {
-  let [story, setStory] = useState(originalStory);
+  const [story, setStory] = useState(originalStory);
 
   // adds the events for updating the visual editor
   // see https://www.storyblok.com/docs/guide/essentials/visual-editor#initializing-the-storyblok-js-bridge
@@ -34,23 +49,15 @@ export function useStoryblok(originalStory, preview) {
         // check if the ids of the event and the passed story match
         if (story && event.story.content._uid === story.content._uid) {
           // change the story content through the setStory function
+          // console.log(story);
+
           setStory(event.story);
+          // getAndSetStory(story.slug, setStory);
         }
       });
 
       storyblokInstance.on("enterEditmode", (event) => {
-        // loading the draft version on initial enter of editor
-        Storyblok.get(`cdn/stories/${event.storyId}`, {
-          version: "draft",
-        })
-          .then(({ data }) => {
-            if (data.story) {
-              setStory(data.story);
-            }
-          })
-          .catch((error) => {
-            console.log(error);
-          });
+        getAndSetStory(event.storyId as string, setStory);
       });
     }
   }

@@ -10,7 +10,6 @@ export const Sidebar = ({
   isOpen: boolean;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
-  console.log("isOpen", isOpen);
   return (
     <nav className={classes(styles.sidebar, isOpen ? "" : styles["closed"])}>
       <header>
@@ -38,7 +37,7 @@ export const Sidebar = ({
 
           <ul className={styles["menu-links"]}>
             <li className={styles["nav-link"]}>
-              <a href="#">
+              <a href="/">
                 <i
                   className={classes(styles["icon"], "bx", "bx-joystick-alt")}
                 />
@@ -49,7 +48,7 @@ export const Sidebar = ({
             </li>
 
             <li className={styles["nav-link"]}>
-              <a href="#">
+              <a href="/account/">
                 <i
                   className={classes(styles["icon"], "bx", "bxs-user-circle")}
                 />
@@ -60,7 +59,7 @@ export const Sidebar = ({
             </li>
 
             <li className={styles["nav-link"]}>
-              <a href="#">
+              <a href="/settings/">
                 <i className={classes(styles["icon"], "bx", "bx-slider")} />
                 <span className={classes(styles["text"], styles["nav-text"])}>
                   Settings
@@ -69,7 +68,7 @@ export const Sidebar = ({
             </li>
 
             <li className={styles["nav-link"]}>
-              <a href="#">
+              <a href="/analytics/">
                 <i
                   className={classes(
                     styles["icon"],
@@ -84,7 +83,7 @@ export const Sidebar = ({
             </li>
 
             <li className={styles["nav-link"]}>
-              <a href="#">
+              <a href="/upload-game/">
                 <i className={classes(styles["icon"], "bx", "bx-upload")} />
                 <span className={classes(styles["text"], styles["nav-text"])}>
                   Upload game

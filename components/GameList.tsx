@@ -2,7 +2,45 @@ import React from "react";
 
 import { GameCard } from "./GameCard";
 import styles from "./GameList.module.scss";
+import { sbEditable, SbEditableBlok } from "@storyblok/storyblok-editable";
 
+type Game = {
+  content: {
+    id: number;
+    title?: string;
+    bio?: string;
+    image?: {
+      id: number;
+      name: string;
+      filename?: string; // the actual file url
+      alt?: string;
+      title?: string;
+      copyright?: string;
+      focus: null;
+    };
+  };
+} & SbEditableBlok;
+
+type GameListProps = {
+  games?: Array<Game>;
+} & SbEditableBlok;
+
+export const GameList = ({ blok }: { blok?: GameListProps }) => {
+  return (
+    <>
+      <div className="text">GAMES</div>
+      <div className={styles["games-grid"]} {...sbEditable(blok)}>
+        {blok?.games.map((game) => (
+          <GameCard key={game.id} image={game.content?.image.filename}>
+            <strong>{game.content?.title}</strong>: {game.content?.bio}
+          </GameCard>
+        ))}
+      </div>
+    </>
+  );
+};
+
+/*
 export const GameList = () => {
   return (
     <>
@@ -161,3 +199,4 @@ export const GameList = () => {
     </>
   );
 };
+*/
