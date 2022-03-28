@@ -2,47 +2,15 @@
 
 $gap: 25px;
 
+// $image
+
 /*Flexbox*/
 .games-grid {
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
 
-  grid-template-rows: minmax(15rem, 80%);
-  margin: 0px;
   margin-top: 5rem;
   margin-left: $gap;
   margin-right: $gap;
   gap: $gap;
-
-  @include media.breakpoints("mobile") {
-    grid-template-columns: 1fr;
-  }
-  @include media.breakpoints("tablet") {
-    grid-template-columns: 1fr 1fr;
-  }
-  @include media.breakpoints("laptop") {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-  @include media.breakpoints("desktop") {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: calc($gap * 2);
-  }
-
-  > .hero {
-    @include media.breakpoints("tablet") {
-      grid-column: 1 / span 2;
-    }
-    @include media.breakpoints("laptop") {
-      grid-column: 1 / span 3;
-    }
-    @include media.breakpoints("desktop") {
-      grid-column: 1 / span 4;
-    }
-
-    grid-row: 1;
-    min-height: 41rem;
-    border-radius: 25px;
-    &::after {
-      background: transparent !important;
-    }
-  }
 }

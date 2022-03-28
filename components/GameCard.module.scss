@@ -1,11 +1,19 @@
+@use "../styles/mixins/media.scss";
+
+@mixin getRatio($height) {
+  width: #{$height * 0.75}px;
+  height: #{$height}px;
+}
+
 .game {
   position: relative;
-  min-height: 25rem;
   border-radius: 15px;
-
   display: flex;
   will-change: transform; // Fixes rounding issue
-  background-color: rgb(222, 253, 21);
+
+  overflow: hidden;
+
+  @include getRatio(500);
 }
 
 .image {
@@ -17,10 +25,10 @@
   color: white;
   position: absolute;
   width: 100%;
-  top: 60%;
+  bottom: 0;
   height: 40%;
   background-color: rgba(#383838a4, 50%);
-  padding: 15px 15px 15px 15px;
+  padding: 15px;
   backdrop-filter: blur(4px);
   will-change: transform; // Fixes rounding issue
 }
