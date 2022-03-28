@@ -15,9 +15,9 @@ export const GameCard = ({ image, children, ...rest }: GameCardProps) => {
         <Image src={image} layout="fill" className={styles.image} />
       ) : null}
       <div className={styles.content}>{children}</div>
-      <button className={styles.button}>
+      <a href="/games/marge" className={styles.button}>
         <i className={classes("bx", "bx-play", styles.play)} />
-      </button>
+      </a>
     </div>
   );
 };
