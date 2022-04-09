@@ -31,7 +31,11 @@ export const GameList = ({ blok }: { blok?: GameListProps }) => {
       <div className="text">GAMES</div>
       <div className={styles["games-grid"]} {...sbEditable(blok)}>
         {blok?.games.map((game) => (
-          <GameCard key={game.id} image={game.content?.image.filename}>
+          <GameCard
+            key={game.id}
+            slug={game.slug}
+            image={game.content?.image.filename}
+          >
             <strong>{game.content?.title}</strong>: {game.content?.bio}
           </GameCard>
         ))}
